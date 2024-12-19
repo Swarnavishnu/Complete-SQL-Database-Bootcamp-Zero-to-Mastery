@@ -7,14 +7,17 @@
 */
 SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 
-
+SELECT emp_no, first_name, EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees
+WHERE first_name ILIKE 'M%';
 /*
 * DB: Employees
 * Table: employees
 * Question: How many people's name start with A and end with R?
 * Expected output: 1846
 */
-
+SELECT count( *)
+FROM employees
+where first_name ILIKE 'a%r'
                                                   
 /*
 * DB: Store
@@ -23,7 +26,9 @@ SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 * Expected output: 4211 
 */
 
-
+SELECT zip
+from customers
+where zip::text LIKE '%2%'
 
 /*
 * DB: Store
@@ -32,7 +37,9 @@ SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 * Expected output: 109 
 */
 
-
+SELECT zip
+from customers
+where zip::text LIKE '2_1%'
 /*
 * DB: Store
 * Table: customers
@@ -40,4 +47,6 @@ SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 * Replace null values with "No State"                                                  
 * Expected output: https://imgur.com/AVe6G4c
 */
-
+SELECT COALESCE(state,'No state') as state
+from customers
+where phone:: text  like'302%' 
