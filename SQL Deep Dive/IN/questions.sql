@@ -5,7 +5,9 @@
 */
 
 SELECT * FROM orders;
-
+SELECT*
+from orders
+where customerid in (7888, 1082, 12808, 9623)
 
 /*
 * DB: World
