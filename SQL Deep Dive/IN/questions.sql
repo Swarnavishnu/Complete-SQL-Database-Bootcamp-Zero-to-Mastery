@@ -6,7 +6,9 @@
 
 SELECT * FROM orders;
 
-
+SELECT COUNT(orderid)
+FROM orders
+WHERE customerid IN (7888, 1082, 12808, 9623)
 /*
 * DB: World
 * Table: city
@@ -14,3 +16,6 @@ SELECT * FROM orders;
 */
 
 SELECT * FROM city;
+SELECT count( * )
+from city
+where district in ('Zuid-Holland','Noord-Brabant','Utrecht')
