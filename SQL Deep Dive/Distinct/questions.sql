@@ -5,7 +5,8 @@
 */
 
 SELECT * FROM titles;
-
+SELECT DISTINCT title
+FROM titles;
 
 /*
 * DB: Employees
@@ -14,6 +15,8 @@ SELECT * FROM titles;
 */
 
 SELECT * FROM employees;
+SELECT DISTINCT birth_date
+FROM employees;
 
 /*
 * DB: World
@@ -23,4 +26,7 @@ SELECT * FROM employees;
 */
 
 SELECT * FROM country;
-
+SELECT DISTINCT lifeexpectancy
+from country
+WHERE lifeexpectancy is NOT NULL
+order by lifeexpectancy
